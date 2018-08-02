@@ -1,0 +1,9 @@
+<description-box [bgClass]="box?.bgClass" [headline]="box?.name" [description]="box?.description">
+<div class="mt-4 mb-4 text-center border border-yellow-dark p-2">
+  <h3 class="text-sm text-blue-darkest mt-4 text-center">Was our tool helpful? Help us by sharing it with your friends</h3>
+  <share-buttons [theme]="'moon'" [include]="['facebook','twitter','linkedin']" [show]="5" [showText]="true" [description]="'Brainstorm Awesome Names For Your Online Course.'"></share-buttons>
+</div>
+</description-box>
+<div class="container max-w-md mx-auto mt-8">
+  <course-name-generator-form (formValue)="handleSubmit($event)" (shuffleProperty)="handleShuffleWord($event)" [finalName]="finalName"></course-name-generator-form>
+</div>

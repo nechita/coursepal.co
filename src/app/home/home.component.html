@@ -1,0 +1,7 @@
+<description-box [bgClass]="descriptionBox.bgClass" [headline]="descriptionBox.headline" [description]="descriptionBox.description">
+
+</description-box>
+<div class="container max-w-md mx-auto flex justify-center items-stretch flex-wrap mt-8">
+  <app-box *ngFor="let box of boxes" [bgClass]="box?.bgClass" [comingSoon] = "box?.coming_soon" [name]="box?.name" (click)="goTo(box)">
+  </app-box>
+</div>

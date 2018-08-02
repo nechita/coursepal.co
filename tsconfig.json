@@ -1,0 +1,43 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@app-shared/*": [
+        "app/shared/*"
+      ],
+      "@course-creation-checklist/*": [
+        "app/course-creation-checklist/*"
+      ],
+      "@course-idea-research-checklist/*": [
+        "app/course-idea-research-checklist/*"
+      ],
+      "@course-idea-validation-checklist/*": [
+        "app/course-idea-validation-checklist/*"
+      ],
+      "@course-launch-checklist/*": [
+        "app/course-launch-checklist/*"
+      ],
+      "@course-promotion-checklist/*": [
+        "app/course-promotion-checklist/*"
+      ],
+      "@course-name-generator/*": [
+        "app/course-name-generator/*"
+      ]
+    },
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  }
+}

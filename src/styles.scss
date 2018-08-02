@@ -1,0 +1,12 @@
+/* BASE STYLES */
+@import './scss/base';
+
+/* COMPONENTS */
+
+@import './scss/components/typography';
+@import './scss/components/buttons';
+@import './scss/components/box';
+@import './scss/components/cta';
+
+@import '~@ngx-share/button/styles/share-buttons';
+@import '~@ngx-share/button/styles/themes/default/default-theme';

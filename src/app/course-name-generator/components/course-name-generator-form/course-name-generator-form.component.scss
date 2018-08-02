@@ -1,0 +1,82 @@
+.ngx-dnd-item {
+  transition: opacity 0.4s ease-in-out;
+  display: block;
+  position: relative;
+  .del-dnd-item,
+  .switch-dnd-item {
+    img {
+      height: 9px;
+      width: auto;
+    }
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: #dedede;
+    color: #1c3d59;
+    border-radius: 100%;
+    font-size: 0.85rem;
+    position: absolute;
+    top: -17px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    cursor: pointer;
+    &:hover {
+      z-index: 1;
+      background-color: red;
+      color: #fefefe;
+      cursor: pointer;
+    }
+  }
+  .switch-dnd-item {
+    left: 0;
+    z-index: 0;
+    &:hover {
+      background-color: lightblue;
+    }
+  }
+}
+
+.ngx-dnd-item:not(.has-handle):not(.move-disabled),
+.ngx-dnd-item.has-handle [ngxdraghandle],
+.ngx-dnd-item.has-handle [ngxDragHandle] {
+  cursor: move;
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+.ngx-dnd-item .ngx-dnd-content {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.ngx-dnd-item:hover {}
+
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+}
+
+.gu-hide {
+  display: none !important;
+}
+
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+.gu-transit {
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}

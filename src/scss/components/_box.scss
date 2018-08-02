@@ -1,0 +1,31 @@
+.box {
+  min-height: 200px;
+  position: relative;
+  opacity: 0.9;
+  transition: all .5s;
+  &:hover {
+    opacity: 1;
+    transition: all .5s;
+    transform: translateY(2px) scale(1.05);
+  }
+}
+
+.box-content {
+  min-height: 265px;
+}
+
+.box-tagline {
+  &.no-border {
+    border: 0;
+  }
+}
+
+.container>app-box {
+  &:nth-child(2n+1) {
+    color: inherit;
+    @media screen and (max-width: 759px) {
+      margin-right: 0;
+    }
+    margin-right: 4%;
+  }
+}

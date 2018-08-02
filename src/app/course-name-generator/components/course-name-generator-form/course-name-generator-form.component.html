@@ -1,0 +1,94 @@
+<div class="course-name-generator-form bg-grey-lightest p-8 rounded shadow-inner">
+  <div class="">
+    <h3 *ngIf="finalName" class="text-2xl mb-4 text-blue-darker justify-center flex items-center">
+      <span class=" mr-2">👐</span>Your million dollar course will be named:
+    </h3>
+    <div ngxDroppable *ngIf="finalName" class="mt-8 flex justify-between ngx-dnd-container">
+      <span ngxDraggable *ngIf="finalName.article" class="ngx-dnd-item flex-1 text-center mr-2 pt-4 pb-4 border-b-8 border-blue-darker">
+        <i class="switch-dnd-item text-black shadow" title="Click to get a new word" (click)="shuffleWord('article', finalName.theme)">
+          <img src="/assets/images/shuffle.svg" height="9px" alt="">
+        </i>
+        <i class="del-dnd-item text-black shadow" title="Remove word" (click)="removeWord('article', 'articles')">&times;</i>{{finalName.article}}</span>
+      <span ngxDraggable *ngIf="finalName.adjective" class="ngx-dnd-item flex-1 text-center mr-2 pt-4 pb-4 border-b-8 border-blue-darker">
+        <i class="switch-dnd-item text-black shadow" title="Click to get a new word" (click)="shuffleWord('adjective', finalName.theme)">
+          <img src="/assets/images/shuffle.svg" height="9px" alt="">
+        </i>
+        <i class="del-dnd-item text-black shadow" title="Remove word" (click)="removeWord('adjective', 'enhancers.adjectives')">&times;</i>{{finalName.adjective}}</span>
+      <span ngxDraggable *ngIf="finalName.theme" class="ngx-dnd-item flex-1 text-center mr-2 pt-4 pb-4 border-b-8 border-blue-darker">{{finalName.theme}}</span>
+      <span ngxDraggable *ngIf="finalName.aspirational" class="ngx-dnd-item flex-1 text-center mr-2 pt-4 pb-4 border-b-8 border-blue-darker">
+        <i class="switch-dnd-item text-black shadow" title="Click to get a new word" (click)="shuffleWord('aspirational', finalName.theme)">
+          <img src="/assets/images/shuffle.svg" height="9px" alt="">
+        </i>
+        <i class="del-dnd-item text-black shadow" title="Remove word" (click)="removeWord('aspirational', 'enhancers.aspirationals')">&times;</i>{{finalName.aspirational}}</span>
+      <span ngxDraggable *ngIf="finalName.format" class="ngx-dnd-item flex-1 text-center mr-2 pt-4 pb-4 border-b-8 border-blue-darker">
+        <i class="switch-dnd-item text-black shadow" title="Click to get a new word" (click)="shuffleWord('format', finalName.theme)">
+          <img src="/assets/images/shuffle.svg" height="9px" alt="">
+        </i>
+        <i class="del-dnd-item text-black shadow" title="Remove word" (click)="removeWord('format', 'enhancers.formats')">&times;</i>{{finalName.format}}</span>
+    </div>
+    <h5 *ngIf="finalName" class="help-text text-xs font-thin text-center mt-2 text-grey">(You can change the order by dragging and dropping the words)</h5>
+  </div>
+  <form class="mt-8" novalidate (ngSubmit)="onSubmit()" [formGroup]="courseNameGeneratorForm">
+    <div class="mt-4 mb-8 p-4 rounded shadow-inner bg-red-lightest" *ngIf="hasErrors && !courseNameGeneratorForm.valid">
+      <h3 class="text-center text-5xl">💩</h3>
+      <p class="text-sm mb-4">There's no room for errors:</p>
+      <ul>
+        <li class="error-text text-xs font-thin mt-2 text-red" *ngIf="courseNameGeneratorForm.get('theme').hasError('required')">
+          Tell us what your course is about
+        </li>
+        <li class="error-text text-xs font-thin mt-2 text-red" *ngIf="courseNameGeneratorForm.get('enhancers').hasError('minimumEnhancers')">
+          Select at least one enhancer BOYO! 🔫
+        </li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <label class="block text-blue-darker text-xl text-center font-bold mb-8 capitalize" for="theme">What is your course about?</label>
+      <input formControlName="theme" class="text-center bg-transparent font-light text-xl no-outline appearance-none border-b-4 border-blue-darker w-full py-4 px-4 text-blue-darker"
+        type="text" id="theme" placeholder="Enter your theme here">
+    </div>
+    <div class="mb-4">
+      <label class="block text-blue-darker font-light">
+        <input formControlName="articles" id="articulateAttribute" type="checkbox" class="mr-2">
+        <span class="text-md">
+          To articulate or not articulate? (Optional)
+        </span>
+      </label>
+    </div>
+    <div formGroupName="enhancers">
+      <h3 class="text-center text-blue-darker text-sm">
+        Enhance your course name:</h3>
+      <h5 class="help-text text-xs font-thin text-center mt-2 text-grey">(Select at least one enhancer)</h5>
+      <div class="mb-4 mt-8">
+        <label class="block text-blue-darker font-light">
+          <input formControlName="adjectives" id="adjectiveAttribute" type="checkbox" class="mr-2" #adjectivesControl>
+          <span class="text-md">
+            Do you want to include an adjective?
+          </span>
+        </label>
+      </div>
+      <div class="mb-4">
+        <label class="block text-blue-darker font-light">
+          <input formControlName="formats" id="formatAttribute" type="checkbox" class="mr-2" #formatsControl>
+          <span class="text-md">
+            Do you want to include a format attribute?
+          </span>
+        </label>
+      </div>
+      <div class="mb-4">
+        <label class="block text-blue-darker font-light">
+          <input formControlName="aspirationals" id="aspirationalAttribute" type="checkbox" class="mr-2" #aspirationalsControl>
+          <span class="text-md">
+            Do you want to make it more aspirational?
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="mb-4">
+      <button id="submitButton" type="submit" class="uppercase w-full mt-8 bg-yellow text-md hover:bg-yellow-light text-black font-black  py-2 px-4 border-b-4 border-yellow-dark hover:border-yellow rounded ">
+        <span class="text-2xl">👊</span>
+        Gimme an awesome online course name
+        <span class="text-2xl">👊</span>
+      </button>
+    </div>
+  </form>
+</div>

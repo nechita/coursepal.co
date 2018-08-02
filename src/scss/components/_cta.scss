@@ -1,0 +1,9 @@
+.cta {
+  min-height: 200px;
+}
+
+.cta-tagline {
+  &.no-border {
+    border: 0;
+  }
+}
