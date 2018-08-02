@@ -28,7 +28,7 @@
     "@ngx-share/buttons": "^6.0.1",
     "@ngx-share/core": "^6.0.1",
     "@swimlane/dragula": "^3.7.3",
-    "@swimlane/ngx-dnd": "^3.2.0",
+    "@swimlane/ngx-dnd": "^5.0.6",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
